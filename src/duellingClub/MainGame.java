@@ -11,9 +11,10 @@ public class MainGame {
 		System.out.println("Chamando setup do agente! ");
 		
 		System.out.println("Criando jogadores");
-		joseTheWizard.setup();
-		cileideTheWIzard.setup();
 		judge.setup();
+		cileideTheWIzard.setup();
+		joseTheWizard.setup();
+
 	}
 
 }
