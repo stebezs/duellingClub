@@ -1,19 +1,30 @@
 package duellingClub;
 
+import jade.core.Runtime;
+import jade.core.Profile;
+import jade.core.ProfileImpl;
+import jade.wrapper.AgentController;
+import jade.wrapper.ContainerController;
+
 public class MainGame {
 
 	public static void main(String[] args) {
-		// TODO Create Wizard list, Judge and start the game
-		System.out.println("Criando novo Jogo! ");
-		WizardAgent joseTheWizard = new WizardAgent();
-		WizardAgent cileideTheWIzard = new WizardAgent();
-		JudgeAgent judge = new JudgeAgent();
-		System.out.println("Chamando setup do agente! ");
-		
-		System.out.println("Criando jogadores");
-		judge.setup();
-		cileideTheWIzard.setup();
-		joseTheWizard.setup();
+		// JADE initialization
+		try {
+			Runtime jadeRuntime = Runtime.instance();
+			Profile profile = new ProfileImpl(null, 1200, null);
+			ContainerController containerController = jadeRuntime.createMainContainer(profile);
+			
+			// Game agents instantiation
+			AgentController gameAgents = containerController.createNewAgent("Game Judge", "duellingClub.JudgeAgent", null);
+			AgentController jadeGUI = containerController.createNewAgent("rma", "jade.tools.rma.rma", args);
+			
+			jadeGUI.start();
+			gameAgents.start();
+		} catch (Exception e) {
+			System.out.println("Error found!");
+			System.out.println(e.getMessage());
+		}
 
 	}
 

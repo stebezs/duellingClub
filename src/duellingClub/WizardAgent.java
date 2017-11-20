@@ -9,7 +9,6 @@ public class WizardAgent extends Agent{
 	
 	private float health = 100;
 	private boolean available = true;
-	
 
 	protected void setup() {
 		System.out.println("Creating Wizard");
