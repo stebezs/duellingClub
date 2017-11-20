@@ -16,11 +16,15 @@ public class MainGame {
 			ContainerController containerController = jadeRuntime.createMainContainer(profile);
 			
 			// Game agents instantiation
-			AgentController gameAgents = containerController.createNewAgent("Game Judge", "duellingClub.JudgeAgent", null);
+			AgentController judgeAgent = containerController.createNewAgent("Game Judge", "duellingClub.JudgeAgent", null);
+			AgentController wizard1 = containerController.createNewAgent("Wizard 1", "duellingClub.WizardAgent", null);
+			AgentController wizard2 = containerController.createNewAgent("Wizard 2", "duellingClub.WizardAgent", null);
 			AgentController jadeGUI = containerController.createNewAgent("rma", "jade.tools.rma.rma", args);
 			
 			jadeGUI.start();
-			gameAgents.start();
+			judgeAgent.start();
+			wizard1.start();
+			wizard2.start();
 		} catch (Exception e) {
 			System.out.println("Error found!");
 			System.out.println(e.getMessage());
