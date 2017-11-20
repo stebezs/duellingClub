@@ -2,6 +2,7 @@ package duellingClub;
 
 import jade.core.Agent;
 
+
 public class WizardAgent extends Agent{
 	private static final long serialVersionUID = 1L;
 	private static final float attackPoints = 10;
@@ -12,6 +13,8 @@ public class WizardAgent extends Agent{
 
 	protected void setup() {
 		System.out.println("Creating Wizard");
+		addBehaviour(new WizardBehavior(this));               
+
 	}
 	
 	

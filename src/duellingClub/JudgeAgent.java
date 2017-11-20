@@ -12,6 +12,7 @@ public class JudgeAgent extends Agent{
 	
 	protected void setup() {
 		System.out.println("Creating Judge");
+		addBehaviour(new WizardBehavior(this));               
 	}
 
 }
